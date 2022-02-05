@@ -10,12 +10,12 @@ type myHandler int
 
 var tpl *template.Template
 
-var testFunc = template.FuncMap{
+var ansFunc = template.FuncMap{
 	"a1": answer1,
 }
 
 func init() {
-	tpl = template.Must(template.New("").Funcs(testFunc).ParseFiles("index.gohtml"))
+	tpl = template.Must(template.New("").Funcs(ansFunc).ParseFiles("index.gohtml"))
 }
 
 func (m myHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
@@ -34,7 +34,7 @@ func main() {
 
 func answer1(s string) string {
 	var reply string
-	if s == "Root Node" {
+	if s == "Root-Node" {
 		reply = `Correct`
 	} else if len(s) > 0 {
 		reply = `Incorrect`

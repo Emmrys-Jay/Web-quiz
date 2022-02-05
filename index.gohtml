@@ -7,26 +7,28 @@
 </head>
 <body>
 
-    {{if .}} 
-        {{range $k, $v := .}}
-            {{$reply := a1 $v}}
-            <p>{{$reply}}</p>
-        {{end}}
-        
-    {{end}}
-
     <p>The node at the top of a heap data structure (with no parents) is called</p>
-    <form action="/" method="post">
+    <form action="/result" method="post">
         <input type="radio" name="answer1" id="top_node" value="Top Node">
         <label for="top_node">Top Node</label><br>
-        <input type="radio" name="answer2" id="max_node" value="Max Node">
+        <input type="radio" name="answer1" id="max_node" value="Max Node">
         <label for="max_node">Max Node</label><br>
-        <input type="radio" name="answer3" id="min_node" value="Min Node">
+        <input type="radio" name="answer1" id="min_node" value="Min Node">
         <label for="min_node">Min Node</label><br>
-        <input type="radio" name="answer4" id="root_node" value="Root Node">
+        <input type="radio" name="answer1" id="root_node" value="Root-Node">
         <label for="root_node">Root Node</label><br>
         <input type="submit" name="submt-butn" value="Submit"><br>
     </form>
+
+    {{if .}} 
+        {{$reply := ""}}
+        {{range $k, $v := .}}
+            {{range $v}}
+                    {{$reply = . | a1}}
+            {{end}}
+        {{end}}
+        <p>{{$reply}}</p>
+    {{end}}
 
 </body>
 </html>
