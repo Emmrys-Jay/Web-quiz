@@ -15,19 +15,18 @@
         <label for="max_node">Max Node</label><br>
         <input type="radio" name="answer1" id="min_node" value="Min Node">
         <label for="min_node">Min Node</label><br>
-        <input type="radio" name="answer1" id="root_node" value="Root-Node">
+        <input type="radio" name="answer1" id="root_node" value="root-node">
         <label for="root_node">Root Node</label><br>
         <input type="submit" name="submt-butn" value="Submit"><br>
     </form>
 
     {{if .}} 
         {{$reply := ""}}
-        {{range $k, $v := .}}
-            {{range $v}}
-                    {{$reply = . | a1}}
-            {{end}}
+        {{$v := index . "answer1"}}
+        {{range $v}}
+                {{$reply = . | a1}}
+                <p>{{$reply}}</p>
         {{end}}
-        <p>{{$reply}}</p>
     {{end}}
 
 </body>

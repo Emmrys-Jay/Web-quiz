@@ -33,13 +33,11 @@ func main() {
 }
 
 func answer1(s string) string {
-	var reply string
-	if s == "Root-Node" {
+	var reply = ""
+	if s == "root-node" {
 		reply = `Correct`
-	} else if len(s) > 0 {
-		reply = `Incorrect`
 	} else {
-		reply = `You havent picked an answer`
+		reply = `Incorrect`
 	}
 	return reply
 }
